@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class Home extends Component {
-    constructor() {
-        super()
-    }
+  constructor() {
+    super();
+  }
 
-
-    render() {
-        const imageStyle = {
-            width: 400
-        }
-        return (
-            <div>
+  render() {
+    const imageStyle = {
+      width: 400
+    };
+    return (
+      <div>
         <div className="row">
           <div className="col-lg-6">
             <h1>
@@ -42,9 +41,8 @@ class Home extends Component {
           </div>
         </div>
       </div>
-        )
-
-    }
+    );
+  }
 }
 
-export default Home
+export default Home;

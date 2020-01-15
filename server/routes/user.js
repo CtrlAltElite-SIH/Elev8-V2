@@ -119,5 +119,25 @@ router.get('/blogs', (req, res, next) => {
     }
 });
 
+router.get('/:blogId/blogs', (req, res, next) => {
+    console.log('===== user!!======')
+    // console.log(req.user._id);
+  let blogId = req.params.blogId;
+  console.log(blogId);
+  User.findOne({}, function(err, user) {
+    if (err) {
+      console.log(err);
+    } else {
+      var blogs = user.blogs;
+      blogs.forEach(function(blog) {
+        if (blog.id === blogId) {
+          console.log(blog.id);
+          res.json(blog);
+        }
+      })
+    }
+  })
+})
+
 
 module.exports = router
