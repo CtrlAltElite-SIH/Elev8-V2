@@ -1,5 +1,5 @@
 {
-  "name": "simple-mern-passport",
+  "name": "Elev8",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,11 +29,7 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
-    "nodemon": "^1.17.5",
-    "mem": ">=4.0.0",
-    "eslint": ">=4.18.2",
-    "webpack-dev-server": ">=3.1.11"
-
+    "nodemon": "^1.17.5"
   },
   "proxy": "http://localhost:8080"
 }
