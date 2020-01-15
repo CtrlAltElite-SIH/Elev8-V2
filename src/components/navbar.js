@@ -44,6 +44,9 @@ class Navbar extends Component {
                                 <Link to="/post" className="btn btn-link text-secondary">
                                     <span className="text-secondary">Post</span>
 				</Link>
+                                 <Link to="/blogs" className="btn btn-link text-secondary">
+                                    <span className="text-secondary">Blogs</span>
+				</Link>
                             </section>
                         ) : (
                                 <section className="navbar-section">
@@ -63,7 +66,7 @@ class Navbar extends Component {
                     <div className="col-4 col-mr-auto">
                     <div id="top-filler"></div>
                         <img src={logo} className="App-logo" alt="logo" />
-                        <h1 className="App-title">MERN Passport</h1>
+                        <h1 className="App-title">Elev8</h1>
                     </div>
                 </header>
             </div>

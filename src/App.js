@@ -7,6 +7,7 @@ import LoginForm from './components/login-form'
 import Navbar from './components/navbar'
 import Home from './components/home'
 import Post from "./components/Post"
+import Blogs from './components/Blogs';
 class App extends Component {
   constructor() {
     super()
@@ -56,7 +57,7 @@ class App extends Component {
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
         {this.state.loggedIn &&
-          <p>Join the party, {this.state.username}!</p>
+          <p>Elev8 yourself, {this.state.username}!</p>
         }
         {/* Routes to different components */}
         <Route
@@ -77,6 +78,9 @@ class App extends Component {
         <Route
           exact path="/post"
           component={Post} />
+          <Route
+          exact path="/blogs"
+          component={Blogs} />
 
       </div>
     );

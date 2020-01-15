@@ -101,5 +101,23 @@ router.post('/post', (req, res, next) => {
     }
 });
 
+router.get('/blogs', (req, res, next) => {
+    console.log('===== user!!======')
+    console.log(req.user._id);
+    if (req.user) {
+        User.find({}, function(err, users) {
+            if (err) {
+              console.log(err);
+            } else {
+              res.json(users);
+              console.log(req.user);
+              console.log(req.body);
+            }
+          });        
+    } else {
+        res.json({ user: null })
+    }
+});
+
 
 module.exports = router
