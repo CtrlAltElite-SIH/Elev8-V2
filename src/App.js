@@ -9,6 +9,7 @@ import Home from "./components/home";
 import Post from "./components/Post";
 import Blogs from "./components/Blogs";
 import Blog from "./components/Blog";
+import Profile from "./components/Profile";
 class App extends Component {
   constructor() {
     super();
@@ -67,6 +68,7 @@ class App extends Component {
         <Route exact path="/post" component={Post} />
         <Route exact path="/blogs" component={Blogs} />
         <Route exact path="/blog/:id" component={Blog} />
+        <Route exact path="/profile" component={Profile} />
       </div>
     );
   }

@@ -139,5 +139,42 @@ router.get('/:blogId/blogs', (req, res, next) => {
   })
 })
 
+router.get('/profile',(req,res,next)=>{
+    User.findById(req.user._id,function(err,user){
+        if(!user){
+            res.status(404).send("user not found")
+        }else{
+            res.json(user);
+            console.log("user data sent");
+            console.log(user);
+        }
+    })
+});
+
+router.post('/profile', (req, res, next) => {
+    console.log('===== user!!======')
+    User.findById(req.user._id, function(err, user) {
+        if (!user) {
+          res.status(404).send("User not found");
+        } else {
+          user.userType = req.body.userType;
+          user.about.content = req.body.content;
+          user.about.github = req.body.github;
+          user.about.linkedIn = req.body.linkedIn;
+          user.about.facebook = req.body.facebook;
+          user.about.skills.name = req.body.skills.name;
+          user.about.skills.rating = req.body.skills.rating;
+          user
+            .save()
+            .then(user => {
+              res.json("user updated!");
+            })
+            .catch(err => {
+              res.status(400).send("update not possible");
+            });
+        }
+      });
+    
+});
 
 module.exports = router
