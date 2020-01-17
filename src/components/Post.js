@@ -10,12 +10,13 @@ export default class Post extends Component{
 
         this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeContent = this.onChangeContent.bind(this);
+        this.onChangeAuthor = this.onChangeAuthor.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             title : "",
             body : "",
-            completed : false
+            author : ""
         };
     }
     onChangeTitle(e) {
@@ -28,7 +29,11 @@ export default class Post extends Component{
             content: e.target.value
         });
     }
-
+    onChangeAuthor(e) {
+        this.setState({
+            author: e.target.value
+        });
+    }
     onSubmit(e) {
         e.preventDefault();
         
@@ -38,7 +43,8 @@ export default class Post extends Component{
 
         const newBlog = {
             title : this.state.title,
-            content : this.state.content
+            content : this.state.content,
+            author : this.state.author
         };
         
         axios.post("/user/post" , newBlog)
@@ -70,7 +76,14 @@ export default class Post extends Component{
                         <textarea name="content" id="post" className="form-control" placeholder="Compose your article" rows="5" value={this.state.content}
                                 onChange={this.onChangeContent}></textarea>
                     </div>
-                    
+                    <div className="form-group"> 
+                        <label>Author: </label>
+                        <input  type="text"
+                                className="form-control"
+                                value={this.state.author}
+                                onChange={this.onChangeAuthor}
+                                />
+                    </div>
                     <div className="form-group">
                         <input type="submit" value="Create BLog" className="btn btn-primary btn-dark" />
                     </div>

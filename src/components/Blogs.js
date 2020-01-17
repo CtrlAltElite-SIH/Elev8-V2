@@ -9,6 +9,7 @@ const Blog = props => (
   <tr>
     <td>{props.blog.title}</td>
     <td>{props.blog.content.substring(0, 100) + " ..."}</td>
+    <td>{props.blog.author}</td>
     <td>{props.blog.date}</td>
     <td>
       {/* {if(props.blog._id==req.user._id){
@@ -35,9 +36,21 @@ export default class Blogs extends Component {
         console.log(response);
         const user = response.data;
         console.log(user);
-        const [{ blogs }] = user;
-        console.log(blogs);
-        this.setState({ blogs: blogs });
+        const blogsarr = [];
+        var i = 0;
+        for (i = 0; i < user.length; i++) {
+          console.log(user[i]);
+          const { blogs } = user[i];
+          var j=0;
+          for(j=0;j<blogs.length;j++){
+              const blog = blogs[j]
+              console.log(blog);
+                blogsarr.push(blog);
+          }
+          
+        }
+        console.log(blogsarr);
+        this.setState({ blogs: blogsarr });
       })
       .catch(function(err) {
         console.log(err);
@@ -46,7 +59,7 @@ export default class Blogs extends Component {
 
   blogList() {
     return this.state.blogs.map(function(currentBlog, i) {
-      console.log(currentBlog);
+      console.log(currentBlog.author);
       return <Blog blog={currentBlog} key={i} />;
     });
   }
@@ -60,6 +73,7 @@ export default class Blogs extends Component {
             <tr>
               <th>Title</th>
               <th>Content</th>
+              <th>Author</th>
               <th>Date</th>
               <th>Actions</th>
             </tr>
