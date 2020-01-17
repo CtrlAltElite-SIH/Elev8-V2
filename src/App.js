@@ -10,6 +10,8 @@ import Post from "./components/Post";
 import Blogs from "./components/Blogs";
 import Blog from "./components/Blog";
 import Profile from "./components/Profile";
+import Feed from "./components/Feed";
+import "bootstrap/dist/css/bootstrap.min.css";
 class App extends Component {
   constructor() {
     super();
@@ -69,6 +71,7 @@ class App extends Component {
         <Route exact path="/blogs" component={Blogs} />
         <Route exact path="/blog/:id" component={Blog} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/feed" component={Feed} />
       </div>
     );
   }

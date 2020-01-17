@@ -150,29 +150,30 @@ router.get("/profile", (req, res, next) => {
   });
 });
 
+
 router.post("/profile", (req, res, next) => {
   console.log("===== user!!======");
-  User.findById(req.user._id, function(err, user) {
-    if (!user) {
-      res.status(404).send("User not found");
-    } else {
-      user.userType = req.body.userType;
-      user.about.content = req.body.content;
-      user.about.github = req.body.github;
-      user.about.linkedIn = req.body.linkedIn;
-      user.about.facebook = req.body.facebook;
-      user.about.skills.name = req.body.skills.name;
-      user.about.skills.rating = req.body.skills.rating;
-      user
-        .save()
-        .then(user => {
-          res.json("user updated!");
-        })
-        .catch(err => {
-          res.status(400).send("update not possible");
-        });
+  User.findByIdAndUpdate(
+    // the id of the item to find
+    req.user._id,
+    
+    // the change to be made. Mongoose will smartly combine your existing 
+    // document with this change, which allows for partial updates too
+    req.body,
+    
+    // an option that asks mongoose to return the updated version 
+    // of the document instead of the pre-updated one.
+    {new: true},
+    
+    // the callback function
+    (err, user) => {
+    // Handle any possible database errors
+        if (err) return res.status(500).send(err);
+        console.log(user);
+        return res.send(user);
     }
-  });
+)
+
 });
 
 module.exports = router;

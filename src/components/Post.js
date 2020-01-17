@@ -3,6 +3,7 @@
 //the ablove line is to remove some warnings related to jshint
 import React, {Component} from 'react';
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 export default class Post extends Component{
 
     constructor(props){

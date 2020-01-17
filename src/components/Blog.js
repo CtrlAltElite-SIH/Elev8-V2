@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 //this is the blog id i want to get from the pade url.. the blog id of your database
-
+import "bootstrap/dist/css/bootstrap.min.css";
 export default class Blog extends Component {
   constructor(props) {
     super(props);
