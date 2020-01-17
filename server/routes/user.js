@@ -123,11 +123,12 @@ router.get("/:blogId/blogs", (req, res, next) => {
   // console.log(req.user._id);
   let blogId = req.params.blogId;
   console.log(blogId);
-  User.findOne({}, function(err, user) {
+  User.findOne({"blogs._id":req.params.blogId}, function(err, user) {
     if (err) {
       console.log(err);
     } else {
       var blogs = user.blogs;
+      console.log(blogs);
       blogs.forEach(function(blog) {
         if (blog.id === blogId) {
           console.log(blog.id);
@@ -153,6 +154,7 @@ router.get("/profile", (req, res, next) => {
 
 router.post("/profile", (req, res, next) => {
   console.log("===== user!!======");
+
   User.findByIdAndUpdate(
     // the id of the item to find
     req.user._id,
