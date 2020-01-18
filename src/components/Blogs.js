@@ -4,7 +4,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 const Blog = props => (
   <tr>
     <td>{props.blog.title}</td>
