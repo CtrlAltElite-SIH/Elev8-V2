@@ -19,7 +19,7 @@ Mongo, Express, ReactJS, Node.js, Javascript.
 Run these commands in the terminal:
 
 ```
-cd simple-mern-passport
+cd Elev8-V2-master
 npm install
 npm run dev
 ```
@@ -31,10 +31,19 @@ npm run dev
 - [ ] Session information stored with express sessions.
 - [ ] Store data for production in sessions with connect-mongo
 - [ ] Create blogs for Startups
-### Next Steps
 - [ ] Add View Blogs
+- [ ] View Single Blog
 - [ ] Add Feed
-- [ ] Add 
+- [ ] Update Profile
+### Next Steps
+
+- [ ] Optimize Feed
+- [ ] Send Requests 
+- [ ] Add Payment Portal
+- [ ] Add Ml to show related Users/Startups
+- [ ] View Startups,Mentors,Experts and Internships
+- [ ] Apply For Internships and Subscribe to Mentors
+- [ ] Show Users based on Location
 
 ## Author
 
